@@ -9,19 +9,11 @@ if(isset($_POST['submit'])){
     
     $arrObj = [];
     while ($data = $stamp->fetch_object()) {
-        $arrObj[] = $data;
+      $arrObj = print_r($data);
+      
     }
 
-    print_r($arrObj); exit;
-
-    if($stamp->num_rows > 0){
-        $data = $stamp->fetch_array();
-        $year = $data['year'];
-        $description = $data['description'];
-        $collection = $data['collection'];
-        $size = $data['size'];
-        $album = $data['album'];   
-    }
+    // exit;
   
     
 }
@@ -41,29 +33,15 @@ if(isset($_POST['submit'])){
     <title>Stamp collection</title>
 </head>
 <body>
-
+<h1>Stamp collection</h1>
 <br>
 <form method="POST" action="index.php">
 <input name="album" placeholder="album"><br><br>
 <input name="submit" type="submit" value="find"><br>
 </form>
 
-    <h1>Stamp collection</h1>
+   
     <a href="add.php">Add a new stamp</a>
-
-
-    <table>
-        <tr>
-            <td><?=$year?></td>
-            <td><?=$description?></td>
-            <td><?=$collection?></td>
-            <td><?=$size?></td>
-            <td><?=$album?></td>
-            
-        </tr>
-        
-    </table>
-
 
 </body>
 </html>
